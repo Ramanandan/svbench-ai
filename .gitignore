@@ -1,0 +1,19 @@
+.venv/
+data/
+outputs/
+__pycache__/
+*.pyc
+*.part
+.DS_Store
+
+# binary index files (data artifacts, not code)
+*.bai
+*.tbi
+*.csi
+
+# local-only, never publish
+docs/
+video/
+APPLICATION.md
+*.pdf
+*.egg-info/

@@ -1,0 +1,31 @@
+[project]
+name = "svbench-ai"
+version = "0.1.0"
+description = "AI-powered structural-variant benchmark review copilot"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = [
+    "anthropic>=0.116",
+    "pysam>=0.22",
+    "pydantic>=2.6",
+    "truvari>=5.0",
+    # samplot pins matplotlib<3.7, which uses np.row_stack (removed in NumPy 2.0),
+    # so the whole render stack must stay on NumPy 1.x. Pin both to avoid a
+    # transitive dep silently pulling NumPy 2 and breaking samplot.
+    "numpy<2",
+    "matplotlib<3.7",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.30"]   # svbench app (Streamlit run console); serve/dashboard need no extras
+
+[project.scripts]
+svbench = "svbench.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["svbench"]
