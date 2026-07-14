@@ -1,0 +1,76 @@
+2026-07-09 01:06:16,798 [INFO] Truvari v5.4.0
+2026-07-09 01:06:16,798 [INFO] Command /Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/.venv/bin/truvari bench -b /Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/data/HG002_GRCh38_v5.0q_stvar.vcf.gz -c outputs/sniffles_chr21.vcf.gz --includebed /Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/data/benchmark_chr21.bed -o /Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/outputs/bench_sniffles --refdist 500 --pctseq 0.7 --pctsize 0.7 --sizemin 50 --passonly
+2026-07-09 01:06:16,799 [INFO] Params:
+{
+    "base": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/data/HG002_GRCh38_v5.0q_stvar.vcf.gz",
+    "comp": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/outputs/sniffles_chr21.vcf.gz",
+    "output": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/outputs/bench_sniffles",
+    "includebed": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/data/benchmark_chr21.bed",
+    "extend": 0,
+    "debug": false,
+    "reference": null,
+    "refdist": 500,
+    "pctseq": 0.7,
+    "pctsize": 0.7,
+    "pctovl": 0.0,
+    "typeignore": false,
+    "no_roll": false,
+    "chunksize": 1000,
+    "bSample": "HG002",
+    "cSample": "SAMPLE",
+    "dup_to_ins": false,
+    "bnddist": 100,
+    "sizemin": 50,
+    "sizefilt": 30,
+    "sizemax": 50000,
+    "passonly": true,
+    "no_ref": false,
+    "pick": "single",
+    "ignore_monref": true,
+    "check_multi": true,
+    "check_monref": true,
+    "no_single_bnd": true,
+    "write_resolved": false,
+    "decompose": true,
+    "short_circuit": false,
+    "skip_gt": false,
+    "max_resolve": 25000
+}
+2026-07-09 01:06:16,970 [WARNING] 1 contigs present in comparison VCF header are not in baseline VCF.
+2026-07-09 01:06:16,972 [INFO] Including 126 bed regions
+2026-07-09 01:06:19,736 [INFO] Zipped 67575 variants Counter({'base': 67132, 'comp': 443})
+2026-07-09 01:06:19,736 [INFO] 384 chunks of 67575 variants Counter({'__filtered': 66549, 'base': 584, 'comp': 442})
+2026-07-09 01:06:19,841 [INFO] Stats: {
+    "TP-base": 386,
+    "TP-comp": 386,
+    "FP": 43,
+    "FN": 198,
+    "precision": 0.8997668997668997,
+    "recall": 0.660958904109589,
+    "f1": 0.7620927936821322,
+    "base cnt": 584,
+    "comp cnt": 429,
+    "TP-comp_TP-gt": 327,
+    "TP-comp_FP-gt": 59,
+    "TP-base_TP-gt": 327,
+    "TP-base_FP-gt": 59,
+    "gt_concordance": 0.8471502590673575,
+    "gt_matrix": {
+        "(1, 1)": {
+            "(1, 1)": 102,
+            "(0, 1)": 12,
+            "(1, 0)": 2
+        },
+        "(1, 0)": {
+            "(1, 1)": 22,
+            "(1, 0)": 53,
+            "(0, 1)": 66
+        },
+        "(0, 1)": {
+            "(0, 1)": 62,
+            "(1, 1)": 23,
+            "(1, 0)": 44
+        }
+    }
+}
+2026-07-09 01:06:19,841 [INFO] Finished bench

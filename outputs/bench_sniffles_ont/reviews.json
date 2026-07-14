@@ -1,0 +1,1514 @@
+[
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:33187133:INS",
+      "chrom": "chr21",
+      "start": 33187133,
+      "end": 33187134,
+      "svtype": "INS",
+      "svlen": 79,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 2,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_33187133_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.82,
+      "primary_reason": "INS in tandem repeat 2bp from a truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "breakpoint_ambiguity",
+        "size_mismatch",
+        "caller_quality"
+      ],
+      "explanation": "The caller reports an insertion inside a flagged tandem repeat, only 2 bp from a truth-set INS of the same type, so this FP almost certainly reflects a representation/breakpoint-placement difference rather than a spurious call. The HP:Undef track shows a localized coverage bump near the site consistent with reads carrying extra inserted sequence, and there is no depth drop (as expected for INS). A size discrepancy (title 401 bp vs SVLEN 79) further indicates inherent length ambiguity typical of tandem-repeat insertions."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:42477166:INS",
+      "chrom": "chr21",
+      "start": 42477166,
+      "end": 42477167,
+      "svtype": "INS",
+      "svlen": 115,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 58,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_42477166_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat near matching truth call",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "breakpoint_ambiguity",
+        "size_mismatch",
+        "caller_quality"
+      ],
+      "explanation": "The HP:2 and HP:1 tracks show localized gaps/dashed breaks in the aligned long reads consistent with an inserted-sequence signature, with no depth drop as expected for an INS. The call sits in a tandem_repeat region and is only 58 bp from a truth INS of the same type, and there is a size discrepancy (caller SVLEN 115 vs the ~401 bp label), which is a classic representation/length-ambiguity mismatch. This pattern indicates Truvari flagged an FP due to breakpoint/length placement ambiguity within the repeat rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:24969746:DEL",
+      "chrom": "chr21",
+      "start": 24969746,
+      "end": 24969796,
+      "svtype": "DEL",
+      "svlen": 50,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": false,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 8,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_24969746_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.72,
+      "primary_reason": "real het deletion near truth call with representation/size mismatch",
+      "evidence_used": [
+        "split_reads",
+        "soft_clips",
+        "read_depth",
+        "size_mismatch",
+        "caller_quality"
+      ],
+      "explanation": "On HP1 there is a localized cluster of split/soft-clipped reads with a slight coverage dip around 24,969,770, consistent with a real heterozygous deletion on a single haplotype (HP2 is undisturbed). A truth deletion sits only 8 bp away, and the packet SVLEN (50 bp) versus the wider drawn interval indicates a breakpoint/size representation difference rather than a spurious call. Truvari likely failed to match due to this size/position discrepancy, so the call is essentially correct."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:33577627:DEL",
+      "chrom": "chr21",
+      "start": 33577627,
+      "end": 33577704,
+      "svtype": "DEL",
+      "svlen": 77,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 23,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_33577627_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.72,
+      "primary_reason": "tandem-repeat size/breakpoint ambiguity near a truth call",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The image shows a cluster of split/gapped reads across ~33,577,555-33,577,700 on both haplotypes, consistent with a real deletion signal rather than an artifact of noise. The locus sits in a tandem repeat with a truth DEL only 23 bp away, and there is a size discrepancy (packet SVLEN 77 vs the 553 bp shown in the title), all hallmarks of a representation difference. In tandem repeats, deletion size and breakpoint placement are inherently ambiguous, so Truvari's FP most likely reflects a failure to match an equivalent truth event rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:17292179:INS",
+      "chrom": "chr21",
+      "start": 17292179,
+      "end": 17292180,
+      "svtype": "INS",
+      "svlen": 173,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 16,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_17292179_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "insertion in tandem repeat with nearby truth call and size ambiguity",
+      "evidence_used": [
+        "tandem_repeat",
+        "low_mappability",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The call is an INS in a low-mappability tandem repeat region, and a truth INS lies only 16 bp away, which is the classic setup for a representation-difference artifact rather than a genuine caller error. Consistent with an insertion, coverage remains flat across the interval (no depth drop) and split/soft-clip signal concentrates near the breakpoint. The discrepancy between the caller's SVLEN (173 bp) and the displayed 401 bp event reflects the inherent ambiguity of inserted-sequence length inside tandem repeats, so Truvari likely failed to match on size/position rather than because the variant is false."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:14106170:DEL",
+      "chrom": "chr21",
+      "start": 14106170,
+      "end": 14106226,
+      "svtype": "DEL",
+      "svlen": 56,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 59.0,
+      "in_segdup": true,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 22,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_14106170_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.7,
+      "primary_reason": "small DEL in tandem repeat near truth call",
+      "evidence_used": [
+        "segdup",
+        "tandem_repeat",
+        "homopolymer",
+        "split_reads",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The 56 bp deletion sits inside a region flagged as segmental duplication, tandem repeat, and homopolymer, and lies only 22 bp from a matched truth call of the same type. The image shows a localized cluster of discordant/split reads near the center with only a minor coverage perturbation consistent with a short deletion, rather than a spurious call. Given the repeat context and the very close truth call, this is most likely a representation/breakpoint-placement discrepancy rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45437819:DEL",
+      "chrom": "chr21",
+      "start": 45437819,
+      "end": 45437928,
+      "svtype": "DEL",
+      "svlen": 109,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 44,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45437819_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.6,
+      "primary_reason": "tandem-repeat/low-mappability locus adjacent to a truth DEL",
+      "evidence_used": [
+        "tandem_repeat",
+        "low_mappability",
+        "breakpoint_ambiguity",
+        "size_mismatch",
+        "caller_quality"
+      ],
+      "explanation": "The call sits in a flagged tandem-repeat and low-mappability region only 44 bp from a truth DEL of the same type, so the FP label most likely reflects ambiguous breakpoint/size placement rather than a spurious call. The reported SVLEN (109 bp) also disagrees with the plotted 617 bp span, consistent with representation instability in repetitive sequence. The alignment shows fragmented/split reads and coverage dips across the interval but no clean full drop, which is typical of an under- or mis-sized deletion inside a repeat rather than a clear artifactual call."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:46006146:INS",
+      "chrom": "chr21",
+      "start": 46006146,
+      "end": 46006147,
+      "svtype": "INS",
+      "svlen": 90,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 65,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_46006146_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.7,
+      "primary_reason": "INS in tandem repeat with nearby truth call and size/representation ambiguity",
+      "evidence_used": [
+        "tandem_repeat",
+        "size_mismatch",
+        "soft_clips",
+        "caller_quality"
+      ],
+      "explanation": "The call is an insertion inside a flagged tandem repeat with a truth call of the same type only 65 bp away, a classic scenario where inserted-sequence length and breakpoint placement are inherently ambiguous. The image shows no depth drop (consistent with INS) and localized split/soft-clip clustering near the breakpoint in HP2, supporting a real insertion. The size discrepancy (packet SVLEN 90 vs 401 bp title) and proximity to truth indicate a representation difference rather than a spurious caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:46161030:INS",
+      "chrom": "chr21",
+      "start": 46161030,
+      "end": 46161031,
+      "svtype": "INS",
+      "svlen": 305,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": false,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 1,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_46161030_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "insertion matched to nearby truth but flagged for size/representation difference",
+      "evidence_used": [
+        "homopolymer",
+        "size_mismatch",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "A truth INS sits only 1 bp away from this sniffles call, so the caller detected a real insertion at the correct position. The region is flagged as homopolymer, where inserted-length estimation is inherently ambiguous, and there is a size discrepancy (image header 401 bp vs packet SVLEN 305), which likely drove Truvari to reject the match on size ratio rather than any genuine caller error. Coverage is flat with no depth drop as expected for an INS, consistent with a true event mislabeled by representation/size differences."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:30742426:INS",
+      "chrom": "chr21",
+      "start": 30742426,
+      "end": 30742427,
+      "svtype": "INS",
+      "svlen": 278,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 1,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_30742426_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.85,
+      "primary_reason": "INS in tandem repeat adjacent to truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "split_reads",
+        "caller_quality",
+        "breakpoint_ambiguity",
+        "size_mismatch"
+      ],
+      "explanation": "The call is an insertion in a tandem-repeat region with a truth call only 1 bp away, and the HP:1 track shows a dashed gap/split-read signature consistent with an inserted segment rather than a coverage drop. Coverage is stable across the interval, matching the INS signature (no depth loss). Because insertion length in tandem repeats is inherently ambiguous (caller SVLEN 278 vs title 401), Truvari's FP most likely reflects a representation/size-matching difference rather than a spurious call."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45898838:DEL",
+      "chrom": "chr21",
+      "start": 45898838,
+      "end": 45898925,
+      "svtype": "DEL",
+      "svlen": 87,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 184,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45898838_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.68,
+      "primary_reason": "deletion in tandem repeat with size/breakpoint ambiguity near a truth call",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "read_depth",
+        "size_mismatch",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The image shows clustered split reads across ~45898767-45898996 and a mild coverage dip on the haplotype tracks, consistent with a real deletion signal rather than a purely spurious call. However, the region is flagged as a tandem repeat and there is a size discordance (packet SVLEN=87 vs the ~573 bp span shown), with a truth call only 184 bp away. In tandem repeats, deletion length and breakpoint placement are inherently ambiguous, so this FP most likely reflects a representation difference rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:40378554:DEL",
+      "chrom": "chr21",
+      "start": 40378554,
+      "end": 40378604,
+      "svtype": "DEL",
+      "svlen": 50,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": false,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 0,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_40378554_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.72,
+      "primary_reason": "real deletion in low-mappability/homopolymer region with size/representation ambiguity",
+      "evidence_used": [
+        "split_reads",
+        "read_depth",
+        "low_mappability",
+        "homopolymer",
+        "size_mismatch",
+        "truvari_refine"
+      ],
+      "explanation": "Both HP1 and HP2 show a localized cluster of split/soft-clipped reads with a small coverage dip near 40,378,550, matching the expected signature of a small deletion, so alignment evidence supports a real variant. A truth call sits at 0 bp distance, and the region is flagged low_mappability and homopolymer, where breakpoint placement and deletion length are inherently ambiguous. The caller reports a 50 bp DEL while the region context suggests a differing representation, so Truvari's FP most likely reflects a representation/size mismatch rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:41835844:INS",
+      "chrom": "chr21",
+      "start": 41835844,
+      "end": 41835845,
+      "svtype": "INS",
+      "svlen": 110,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": false,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 15,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_41835844_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.6,
+      "primary_reason": "insertion adjacent to truth call with size discrepancy",
+      "evidence_used": [
+        "read_depth",
+        "size_mismatch",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "Coverage is flat across the interval with no depth drop, consistent with an insertion rather than a deletion, and the HP2 haplotype carries aligned long reads spanning the site. The call sits only 15 bp from a truth INS of the same type, and there is a notable size discrepancy (packet SVLEN 110 bp vs displayed 401 bp), suggesting Truvari flagged this as FP due to inserted-length representation differences rather than a genuine caller error. INS length ambiguity of this kind is a classic benchmark representation artifact."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:16971274:INS",
+      "chrom": "chr21",
+      "start": 16971274,
+      "end": 16971275,
+      "svtype": "INS",
+      "svlen": 151,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 218,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_16971274_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.55,
+      "primary_reason": "INS in tandem repeat with nearby truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "size_mismatch",
+        "caller_quality",
+        "read_depth"
+      ],
+      "explanation": "The call is a 151 bp (title reads 401 bp) sniffles insertion sitting inside a tandem-repeat region, where inserted-sequence length and precise breakpoint placement are inherently ambiguous. Coverage is flat and uniform across all haplotypes with no depth anomaly, consistent with an INS (which does not drop coverage), and a truth INS lies only 218 bp away. The combination of tandem-repeat context, proximate same-type truth call, and size discrepancy points to a representation difference rather than a genuine false call, though the moderate distance and size mismatch leave some doubt."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:46090768:INS",
+      "chrom": "chr21",
+      "start": 46090768,
+      "end": 46090769,
+      "svtype": "INS",
+      "svlen": 465,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 160,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_46090768_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat with nearby truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "low_mappability",
+        "split_reads",
+        "caller_quality",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The 401 bp INS call sits in a low-mappability tandem-repeat region with a truth INS of the same type only 160 bp away, a classic representation/placement ambiguity. Coverage is maintained (no depth drop, consistent with an INS), and scattered split/soft-clip signals appear across the haplotypes supporting inserted sequence. Given the tandem-repeat context and the size/breakpoint ambiguity inherent to repeat insertions, the FP label most likely reflects a representation difference rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:28891444:DEL",
+      "chrom": "chr21",
+      "start": 28891444,
+      "end": 28891760,
+      "svtype": "DEL",
+      "svlen": 316,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": false,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 233,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_28891444_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.72,
+      "primary_reason": "nearby truth DEL with breakpoint/representation ambiguity in low-mappability region",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "low_mappability",
+        "homopolymer",
+        "breakpoint_ambiguity",
+        "size_mismatch"
+      ],
+      "explanation": "The alignment supports a real deletion: the HP:Undef panel shows a clear localized coverage drop around 28,891,450-28,891,750 and HP:2 shows spanning/split reads (dotted lines) crossing the interval, consistent with a heterozygous DEL. A truth call of the same type lies only 233 bp away, and the locus sits in a low-mappability, homopolymer region where breakpoint placement and size are inherently ambiguous, so Truvari's FP most likely reflects a representation/breakpoint offset rather than a spurious call. The size discrepancy (caller 316 bp vs the ~1 kb display span) further points to size/placement ambiguity rather than a false event."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:32024353:INS",
+      "chrom": "chr21",
+      "start": 32024353,
+      "end": 32024354,
+      "svtype": "INS",
+      "svlen": 142,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 0,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_32024353_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat with truth call at distance 0",
+      "evidence_used": [
+        "tandem_repeat",
+        "size_mismatch",
+        "caller_quality",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The call is a 142 bp insertion inside a tandem-repeat region with a truth INS at the identical position (nearest_truth_call_dist_bp = 0), so a real event exists here. Truvari most likely flagged it FP due to inserted-length/representation ambiguity that is inherent to tandem repeats rather than a genuine caller error. Coverage across the region is flat and uninterrupted as expected for an INS (no depth drop), consistent with a real insertion whose size is hard to reconcile between callsets."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:44863152:INS",
+      "chrom": "chr21",
+      "start": 44863152,
+      "end": 44863153,
+      "svtype": "INS",
+      "svlen": 445,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 15,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_44863152_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.82,
+      "primary_reason": "INS in tandem repeat near matching truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "low_mappability",
+        "split_reads",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "This is a ~401-445 bp insertion call sitting in a low-mappability tandem-repeat region, only 15 bp from a truth INS of the same type. On HP1 the aligned long-read track shows a dashed/broken segment consistent with an inserted-sequence breakpoint, and coverage stays flat (no depth drop) as expected for an INS. The FP label almost certainly reflects a representation/length-ambiguity mismatch within the repeat rather than a spurious call, so this is a benchmark artifact, not a caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45340521:INS",
+      "chrom": "chr21",
+      "start": 45340521,
+      "end": 45340522,
+      "svtype": "INS",
+      "svlen": 557,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 6,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45340521_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.82,
+      "primary_reason": "insertion in tandem repeat with truth call 6bp away",
+      "evidence_used": [
+        "tandem_repeat",
+        "split_reads",
+        "breakpoint_ambiguity",
+        "size_mismatch",
+        "read_depth"
+      ],
+      "explanation": "The caller reports a 557bp INS while the nearest truth call is only 6bp away, and the region is flagged as a tandem repeat, where inserted-sequence length and precise placement are inherently ambiguous. The image shows stable, uninterrupted coverage across haplotypes (no depth drop, consistent with an insertion) with split/discordant read signal on HP2 near the site, supporting a real insertion event. The likely size and coordinate discrepancy relative to the truth representation explains the Truvari FP label, making this a representation artifact rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:36497085:INS",
+      "chrom": "chr21",
+      "start": 36497085,
+      "end": 36497086,
+      "svtype": "INS",
+      "svlen": 191,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 37,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_36497085_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.76,
+      "primary_reason": "INS in tandem repeat near matching truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "caller_quality",
+        "read_depth"
+      ],
+      "explanation": "The coverage tracks are flat with no depth drop, consistent with an insertion rather than an artifact of missing reads. The call sits inside a tandem repeat only 37 bp from a truth INS, and there is a size discrepancy (caller SVLEN 191 vs the ~401 bp displayed), which is the classic ambiguity of insertion length/placement within repeats. This pattern indicates a representation difference that Truvari failed to match rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:42615749:INS",
+      "chrom": "chr21",
+      "start": 42615749,
+      "end": 42615750,
+      "svtype": "INS",
+      "svlen": 138,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 20,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_42615749_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat near truth call with size discrepancy",
+      "evidence_used": [
+        "tandem_repeat",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The call is an insertion sitting inside a flagged tandem repeat with a truth INS only 20 bp away, and the reported length differs (packet 138 bp vs image 401 bp), the hallmark of representation ambiguity rather than a false variant. Coverage stays flat with no depth drop, consistent with an INS signature, and inserted-sequence length is inherently uncertain in tandem repeats. The high caller quality (60) plus a same-type truth call nearby indicate the event is real but scored FP due to breakpoint/length representation mismatch."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:38429549:DEL",
+      "chrom": "chr21",
+      "start": 38429549,
+      "end": 38429599,
+      "svtype": "DEL",
+      "svlen": 50,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 10,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_38429549_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.7,
+      "primary_reason": "call in tandem repeat near truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "low_mappability",
+        "split_reads",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The caller reports a 50 bp deletion sitting in a low-mappability tandem-repeat region with a truth call only 10 bp away, and the image shows clustered split-read/soft-clip signal around 38429474-38429574 on both haplotypes consistent with a small deletion breakpoint rather than clean reference. A small deletion inside a tandem repeat is highly prone to breakpoint-shift and size-ambiguity representation differences, which is the classic cause of a Truvari FP that is not a true caller error. The very short distance to the nearest truth call of the same type supports this being the same event with an alternate representation."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:44984156:INS",
+      "chrom": "chr21",
+      "start": 44984156,
+      "end": 44984157,
+      "svtype": "INS",
+      "svlen": 471,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": false,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 54,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_44984156_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.7,
+      "primary_reason": "insertion near truth call in homopolymer context",
+      "evidence_used": [
+        "homopolymer",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The caller reports a ~471bp INS with solid quality (60) only 54bp from a truth insertion call, and the locus is flagged as homopolymer, where insertion placement and length are inherently ambiguous. The coverage tracks remain smooth and flat with no depth drop, consistent with an INS rather than a false depth-based artifact, and insertions do not show coverage loss. The proximity of a same-type truth call combined with the homopolymer context strongly suggests a representation/breakpoint-shift mismatch rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45437562:DEL",
+      "chrom": "chr21",
+      "start": 45437562,
+      "end": 45437634,
+      "svtype": "DEL",
+      "svlen": 72,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 69,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45437562_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.68,
+      "primary_reason": "deletion within tandem repeat with nearby truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "read_depth",
+        "breakpoint_ambiguity",
+        "size_mismatch",
+        "caller_quality"
+      ],
+      "explanation": "The call is a 72 bp DEL flagged as FP but sits within a tandem-repeat region only 69 bp from a truth call of the same type, a classic representation/placement ambiguity. The image shows a modest coverage dip on the HP1 haplotype across the interval, consistent with a real small deletion event rather than pure noise. Given the tandem-repeat context and close proximity to a truth call, Truvari's failure to match is most likely a breakpoint/size representation difference rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:32477786:INS",
+      "chrom": "chr21",
+      "start": 32477786,
+      "end": 32477787,
+      "svtype": "INS",
+      "svlen": 128,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 86,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_32477786_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat near truth call with size/breakpoint ambiguity",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "low_mappability",
+        "size_mismatch"
+      ],
+      "explanation": "HP:1 shows a clear localized cluster of split/soft-clipped reads with dotted insertion signatures around 32,477,706-32,477,806 and no depth drop, matching the expected INS signature on a single haplotype. The call sits in a low-mappability tandem repeat only 86 bp from a truth INS, and there is an inconsistency in reported length (128 bp in packet vs 401 bp in the title), all hallmarks of representation ambiguity. A real insertion is present but Truvari flagged it as FP due to breakpoint/size shift within a repeat, not a caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:42588371:DEL",
+      "chrom": "chr21",
+      "start": 42588371,
+      "end": 42590004,
+      "svtype": "DEL",
+      "svlen": 1633,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": true,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 87,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_42588371_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.62,
+      "primary_reason": "call in repetitive region adjacent to matching truth",
+      "evidence_used": [
+        "segdup",
+        "low_mappability",
+        "tandem_repeat",
+        "split_reads",
+        "discordant_pairs",
+        "breakpoint_ambiguity",
+        "read_depth"
+      ],
+      "explanation": "The locus sits within overlapping segdup, low-mappability, and tandem-repeat annotations, and a truth DEL lies only 87 bp away, so the FP label most likely reflects ambiguous breakpoint placement rather than a spurious call. The HP2 track shows a cluster of discordant/split reads across the interval consistent with a structural rearrangement, though there is no clean coverage drop to zero (expected given the repetitive, mappability-challenged context). The SVLEN mismatch (packet 1633 bp vs 3.67 kb banner) further indicates a representation/size discrepancy rather than a caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:39974382:INS",
+      "chrom": "chr21",
+      "start": 39974382,
+      "end": 39974383,
+      "svtype": "INS",
+      "svlen": 351,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 59.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 112,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_39974382_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat near truth call",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "low_mappability",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The image shows no depth drop (consistent with INS, not DEL) and split/soft-clipped read signatures around the breakpoint on both haplotypes, supporting a real insertion. The locus sits in a low-mappability tandem repeat with a truth INS only 112 bp away, and insertion length (351 vs ~401 bp displayed) is inherently ambiguous in such repeats. This is most consistent with a representation/placement difference rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:42570180:DEL",
+      "chrom": "chr21",
+      "start": 42570180,
+      "end": 42570282,
+      "svtype": "DEL",
+      "svlen": 102,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 18,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_42570180_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.7,
+      "primary_reason": "tandem-repeat representation/size ambiguity near matching truth call",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The HP:2 haplotype shows a cluster of split/spanning reads with dotted alignment arcs around 42,570,110-42,570,351, consistent with a real deletion event on one haplotype (heterozygous), rather than noise. The locus is flagged as tandem_repeat and there is a truth call only 18 bp away of the same type, while the caller's SVLEN (102 bp, though the plot title lists 604 bp) creates a size/breakpoint discrepancy. This pattern\u2014a supported DEL inside a tandem repeat adjacent to a matching truth call\u2014strongly indicates a Truvari representation mismatch rather than a genuine false positive."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:37685697:INS",
+      "chrom": "chr21",
+      "start": 37685697,
+      "end": 37685698,
+      "svtype": "INS",
+      "svlen": 129,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": false,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 8,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_37685697_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "insertion supported near a truth call in homopolymer context",
+      "evidence_used": [
+        "split_reads",
+        "soft_clips",
+        "homopolymer",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The image shows no depth drop (correct for INS) with a localized cluster of split/soft-clipped reads at ~37,685,697 in both HP1 and HP2, consistent with a real heterozygous-to-homozygous insertion signal at a single breakpoint. A truth INS lies only 8 bp away and the region is flagged as homopolymer, where inserted-length is inherently ambiguous; note the size discrepancy (title 401 bp vs SVLEN 129), pointing to a representation/size mismatch rather than a spurious call. This is most consistent with a benchmark artifact driven by breakpoint/size ambiguity in a low-complexity context, not a caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:41931894:DEL",
+      "chrom": "chr21",
+      "start": 41931894,
+      "end": 41931945,
+      "svtype": "DEL",
+      "svlen": 51,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 30,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_41931894_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "deletion call in tandem repeat with nearby truth call",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "tandem_repeat",
+        "low_mappability",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The HP:2 track shows a localized coverage dip and a cluster of split/spanning-read gaps (dotted arcs) around 41,931,850-41,931,950, consistent with a real ~50 bp deletion on one haplotype. The locus falls in a tandem-repeat, low-mappability region and sits only 30 bp from a truth call of the same type, so Truvari's FP label most likely reflects a breakpoint/representation shift within the repeat rather than a spurious caller event. This pattern (short DEL inside a tandem repeat near a matching truth call) is a classic benchmark artifact."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:13017861:INS",
+      "chrom": "chr21",
+      "start": 13017861,
+      "end": 13017862,
+      "svtype": "INS",
+      "svlen": 425,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 55.0,
+      "in_segdup": true,
+      "in_low_mappability": false,
+      "in_tandem_repeat": false,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": null,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_13017861_INS.png"
+    },
+    "verdict": {
+      "classification": "false_positive",
+      "confidence": 0.6,
+      "primary_reason": "insertion call in segmental duplication with no supporting local signal and no nearby truth variant",
+      "evidence_used": [
+        "read_depth",
+        "segdup",
+        "caller_quality"
+      ],
+      "explanation": "The region carries a segdup flag, where mismapping of reads commonly produces spurious insertion calls. The coverage across both haplotypes is uniform and unremarkable with no localized cluster of soft-clips or breakpoint disturbance at ~13,017,861 to support a 425 bp insertion. With no truth call anywhere nearby (nearest_truth_call_dist_bp = None) and only moderate caller quality (55), the evidence favors a false positive rather than a representation artifact of a real event."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45898649:DEL",
+      "chrom": "chr21",
+      "start": 45898649,
+      "end": 45898733,
+      "svtype": "DEL",
+      "svlen": 84,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 5,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45898649_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "tandem-repeat representation/size ambiguity near a truth call",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "tandem_repeat",
+        "size_mismatch",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The alignments show a genuine deletion signal: coverage dips and clustered split/spanning reads (dotted lines) appear on HP1/HP2 around 45,898,600-45,898,900, matching a real DEL. However the locus sits in a tandem repeat and a truth DEL lies only 5 bp away, while the caller's SVLEN (84 bp) conflicts with the ~568 bp span depicted, indicating breakpoint/size representation ambiguity rather than a spurious call. Truvari's FP therefore reflects a representation mismatch inside a repeat, not a caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:24989034:INS",
+      "chrom": "chr21",
+      "start": 24989034,
+      "end": 24989035,
+      "svtype": "INS",
+      "svlen": 110,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 27,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_24989034_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat near truth call with size/breakpoint ambiguity",
+      "evidence_used": [
+        "tandem_repeat",
+        "breakpoint_ambiguity",
+        "size_mismatch",
+        "caller_quality"
+      ],
+      "explanation": "The locus is flagged as a tandem repeat and there is a truth INS only 27 bp away, so this sniffles INS call almost certainly represents the same event but with an ambiguous breakpoint and length (note the packet SVLEN of 110 versus the 401 bp label, reflecting representation instability typical of repeat-embedded insertions). The image shows flat, well-supported long-read coverage with no deletion signature, consistent with an insertion rather than a caller error. Truvari's FP label is best explained by representation differences within the tandem repeat rather than a genuine false call."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:27627199:INS",
+      "chrom": "chr21",
+      "start": 27627199,
+      "end": 27627200,
+      "svtype": "INS",
+      "svlen": 512,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 55,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_27627199_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat with nearby truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "low_mappability",
+        "soft_clips",
+        "size_mismatch",
+        "caller_quality"
+      ],
+      "explanation": "The call is an insertion inside a low-mappability tandem-repeat region, where coverage stays flat (as expected for INS, no depth drop) and a localized cluster of soft-clipped/split reads is visible on HP1 near the left breakpoint, supporting a real insertion. A truth call of the same type sits only 55 bp away, and the size differs (title 401 bp vs caller SVLEN 512), which are hallmarks of representation ambiguity for INS in tandem repeats. This is most consistent with a benchmark artifact rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:40348210:INS",
+      "chrom": "chr21",
+      "start": 40348210,
+      "end": 40348211,
+      "svtype": "INS",
+      "svlen": 436,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 11,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_40348210_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.85,
+      "primary_reason": "INS in tandem repeat with adjacent truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "split_reads",
+        "caller_quality",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The 436 bp INS sits in a tandem-repeat region and there is a truth INS only 11 bp away, a classic representation mismatch. The image shows no depth drop (consistent with INS not DEL), with a localized cluster of split/soft-clipped reads in the HP:Undef track around the breakpoint. Given the tandem-repeat context, inserted-sequence length is inherently ambiguous and Truvari likely failed to match due to breakpoint/size representation rather than a genuine false call."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45500921:INS",
+      "chrom": "chr21",
+      "start": 45500921,
+      "end": 45500922,
+      "svtype": "INS",
+      "svlen": 398,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 58.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 0,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45500921_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat with truth call at same site",
+      "evidence_used": [
+        "tandem_repeat",
+        "low_mappability",
+        "caller_quality",
+        "split_reads"
+      ],
+      "explanation": "The 401bp INS sits in a low-mappability tandem-repeat region with a truth call at distance 0bp, the classic setup for representation-driven FP labeling. The image shows no depth drop (consistent with INS) and split/soft-clip signals in HP1 near the breakpoint, indicating a real inserted-sequence event. Given the co-located truth call and inherent length ambiguity of tandem-repeat insertions, this is most likely a representation mismatch rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45490005:DEL",
+      "chrom": "chr21",
+      "start": 45490005,
+      "end": 45490063,
+      "svtype": "DEL",
+      "svlen": 58,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 49,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45490005_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.7,
+      "primary_reason": "deletion in tandem repeat with nearby truth call",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "breakpoint_ambiguity",
+        "read_depth",
+        "caller_quality"
+      ],
+      "explanation": "The HP1 haplotype shows a cluster of split reads and coverage perturbation around 45489900-45490137 consistent with a heterozygous deletion, while HP2 remains flat, matching a het event. The call falls in a tandem_repeat region and sits only 49 bp from a truth call of the same type, so the FP label most likely reflects breakpoint/representation ambiguity within the repeat rather than a genuine caller error. The apparent size discordance (title 516 bp vs SVLEN 58) further supports representation instability in this repetitive locus."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:40508755:DEL",
+      "chrom": "chr21",
+      "start": 40508755,
+      "end": 40508805,
+      "svtype": "DEL",
+      "svlen": 50,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 59.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 21,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_40508755_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "Real deletion in tandem repeat with nearby truth call (representation difference)",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "homopolymer",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "Both HP1 and HP2 tracks show a localized cluster of split/gapped reads (dashed alignments with a coverage notch) around 40,508,760-40,508,820, consistent with a real ~50bp deletion rather than a spurious call. The locus is flagged as a tandem repeat/homopolymer and sits only 21bp from a truth-set deletion, so Truvari's FP label most likely reflects breakpoint/size representation ambiguity in a repetitive context rather than a genuine caller error. The good caller quality (59) and clear read support further favor a benchmark representation artifact."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:31784692:INS",
+      "chrom": "chr21",
+      "start": 31784692,
+      "end": 31784693,
+      "svtype": "INS",
+      "svlen": 130,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 120,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_31784692_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.68,
+      "primary_reason": "INS in tandem repeat near truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "size_mismatch",
+        "read_depth"
+      ],
+      "explanation": "The call is a 130 bp insertion (title annotates ~401 bp) sitting inside a tandem_repeat with a truth INS only 120 bp away, a classic representation-difference scenario where inserted-length and breakpoint placement are inherently ambiguous. Coverage is stable across the region with no depth drop, consistent with an insertion rather than a deletion, and no contradicting evidence is visible. This pattern (INS mismatch inside a tandem repeat adjacent to a same-type truth call) most likely reflects a Truvari representation mismatch rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:46183812:DEL",
+      "chrom": "chr21",
+      "start": 46183812,
+      "end": 46183883,
+      "svtype": "DEL",
+      "svlen": 71,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 191,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_46183812_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "real heterozygous deletion in tandem repeat with size/breakpoint mismatch",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "tandem_repeat",
+        "low_mappability",
+        "size_mismatch",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "HP:1 shows a clear coverage drop and a cluster of split/spanning reads across the interval, matching a heterozygous deletion signature, while HP:2 remains intact, so a real DEL is supported. The locus sits in a tandem-repeat and low-mappability region with a truth call only 191 bp away, and there is a size discrepancy (caller SVLEN 71 vs the ~541 bp span shown), so Truvari's FP is most consistent with a representation/breakpoint mismatch rather than a spurious call. This is best explained as a benchmark artifact, not a caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:40620211:DEL",
+      "chrom": "chr21",
+      "start": 40620211,
+      "end": 40620291,
+      "svtype": "DEL",
+      "svlen": 80,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": null,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_40620211_DEL.png"
+    },
+    "verdict": {
+      "classification": "false_positive",
+      "confidence": 0.55,
+      "primary_reason": "small DEL in tandem-repeat/homopolymer with no clear depth drop",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "tandem_repeat",
+        "homopolymer",
+        "caller_quality"
+      ],
+      "explanation": "The packet describes an 80 bp DEL flagged by Truvari as FP with no truth call at any nearby distance, sitting in a tandem-repeat and homopolymer context that is prone to ONT alignment artifacts. Coverage on both haplotypes remains near baseline (~28x on HP2, stable on HP1) with no convincing drop toward zero across the reported interval, and only scattered ambiguous dotted split-read patterns in HP1 that are consistent with tandem-repeat mismapping rather than a clean deletion. The absence of any nearby truth call argues against a mere representation shift, favoring a spurious call in a difficult repeat region."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:42582960:INS",
+      "chrom": "chr21",
+      "start": 42582960,
+      "end": 42582961,
+      "svtype": "INS",
+      "svlen": 50,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 44,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_42582960_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.7,
+      "primary_reason": "INS in tandem repeat near a truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "breakpoint_ambiguity",
+        "size_mismatch"
+      ],
+      "explanation": "The call is an insertion inside a tandem repeat, where inserted-sequence length and breakpoint placement are inherently ambiguous, and a truth INS lies only 44 bp away. Coverage is flat and continuous across the region as expected for an INS (no depth drop), consistent with a real event rather than a spurious deletion signal. The Truvari FP most likely reflects a representation/size discrepancy (packet SVLEN 50 vs. plotted 401 bp) within the repeat rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45896692:INS",
+      "chrom": "chr21",
+      "start": 45896692,
+      "end": 45896693,
+      "svtype": "INS",
+      "svlen": 164,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 249,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45896692_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.62,
+      "primary_reason": "INS inside tandem repeat with ambiguous size/placement",
+      "evidence_used": [
+        "tandem_repeat",
+        "split_reads",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "caller_quality"
+      ],
+      "explanation": "The call is an insertion in a tandem-repeat region, where inserted-sequence length and exact breakpoint are inherently ambiguous. Coverage is flat as expected for an INS (no depth drop), and the HP1 track shows a discontinuity/dashed split-read signal in the right half of the window consistent with a real insertion event. There is a truth INS ~249 bp away and a notable size discrepancy (caller SVLEN 164 vs 401 bp label), suggesting Truvari failed to match due to representation/placement differences rather than a genuine false call. Confidence is moderate because the 249 bp offset is somewhat large for a clean artifact match."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:45156176:INS",
+      "chrom": "chr21",
+      "start": 45156176,
+      "end": 45156177,
+      "svtype": "INS",
+      "svlen": 306,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 54,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_45156176_INS.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "INS in tandem repeat near a truth call",
+      "evidence_used": [
+        "tandem_repeat",
+        "breakpoint_ambiguity",
+        "size_mismatch",
+        "caller_quality"
+      ],
+      "explanation": "The call is a 306-401 bp insertion sitting in a flagged tandem-repeat region, and there is a truth INS only 54 bp away, a hallmark of a representation/placement difference rather than a genuine caller error. Coverage is flat and uniform across all haplotypes with no depth drop, consistent with an insertion rather than a deletion, and Sniffles reports solid quality (60). Truvari most likely failed to match due to breakpoint shift and inherent insertion-length ambiguity inside the repeat."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont:FP:chr21:13042673:INS",
+      "chrom": "chr21",
+      "start": 13042673,
+      "end": 13042674,
+      "svtype": "INS",
+      "svlen": 301,
+      "caller": "sniffles_ont",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": true,
+      "in_low_mappability": true,
+      "in_tandem_repeat": false,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": null,
+      "image_path": "outputs/bench_sniffles_ont/images/sniffles_ont_FP_chr21_13042673_INS.png"
+    },
+    "verdict": {
+      "classification": "false_positive",
+      "confidence": 0.6,
+      "primary_reason": "Insertion call in segdup/low-mappability region lacking supporting signature",
+      "evidence_used": [
+        "read_depth",
+        "segdup",
+        "low_mappability",
+        "caller_quality"
+      ],
+      "explanation": "The caller reports a ~301-401 bp insertion, but the alignment tracks show flat, uninterrupted coverage across all haplotypes with no localized soft-clip/split-read cluster at the breakpoint that would mark a genuine insertion. The locus sits in a segmental duplication and low-mappability region, which readily produces spurious sniffles calls from mismapped reads. With no truth call anywhere nearby (nearest_truth_call_dist_bp = None) and only moderate QUAL (60), the evidence favors a mapping-driven false positive rather than a representation artifact."
+    }
+  }
+]

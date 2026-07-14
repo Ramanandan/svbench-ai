@@ -1,0 +1,220 @@
+[
+  {
+    "packet": {
+      "locus_id": "sniffles_trio:FP:chr21:17954522:DEL",
+      "chrom": "chr21",
+      "start": 17954522,
+      "end": 17957031,
+      "svtype": "DEL",
+      "svlen": 2509,
+      "caller": "sniffles_trio",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 239,
+      "image_path": "outputs/bench_sniffles/images/sniffles_trio_FP_chr21_17954522_DEL_trio.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.85,
+      "primary_reason": "real inherited deletion mislabeled due to size/representation difference",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "size_mismatch",
+        "tandem_repeat",
+        "low_mappability",
+        "mendelian_inheritance",
+        "parental_support"
+      ],
+      "explanation": "The child (HG002) HP:2 shows a clear coverage drop between ~17954600 and ~17956859 with a spanning split-read gap (dashed line), and the same haplotype-specific drop and split-read signature is present in both the father (HP:2) and mother (HP:1/HP:2), so the deletion is clearly inherited and real. The caller reported SVLEN 2509 bp while the depicted event spans ~5.42 kb, and the locus sits in a tandem-repeat/low-mappability region only 239 bp from a truth call, so the Truvari FP most likely reflects a breakpoint/size representation mismatch rather than a spurious call. Given the strong Mendelian support, this is a benchmark artifact, not a caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_trio:FP:chr21:38429549:DEL",
+      "chrom": "chr21",
+      "start": 38429549,
+      "end": 38429599,
+      "svtype": "DEL",
+      "svlen": 50,
+      "caller": "sniffles_trio",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 10,
+      "image_path": "outputs/bench_sniffles/images/sniffles_trio_FP_chr21_38429549_DEL_trio.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "inherited real deletion mislabeled due to tandem-repeat representation ambiguity",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "low_mappability",
+        "size_mismatch",
+        "mendelian_inheritance",
+        "parental_support",
+        "caller_quality"
+      ],
+      "explanation": "Dotted split-read gaps marking a small deletion breakpoint are visible in the child (HP1/HP2) and in BOTH parents (father HP1, mother HP1/HP2), indicating an inherited and therefore genuine event, not an artifact. The locus sits in a low-mappability tandem repeat with a truth call only 10 bp away, and there is a size discrepancy (caller SVLEN 50 vs a ~500 bp DEL annotation), both classic sources of Truvari representation FPs. The alignment evidence supports a real deletion, so the FP label most likely reflects breakpoint/size representation differences rather than a caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_trio:FP:chr21:41806449:DEL",
+      "chrom": "chr21",
+      "start": 41806449,
+      "end": 41806538,
+      "svtype": "DEL",
+      "svlen": 89,
+      "caller": "sniffles_trio",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 43,
+      "image_path": "outputs/bench_sniffles/images/sniffles_trio_FP_chr21_41806449_DEL_trio.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "size/representation mismatch in tandem repeat",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "mendelian_inheritance",
+        "parental_support",
+        "caller_quality"
+      ],
+      "explanation": "The samplot shows clear split-read/spanning-gap signatures (dotted connector lines) across the interval in the CHILD (both HP1 and HP2) and in AT LEAST ONE PARENT (father HP1 and mother HP1/HP2), indicating an inherited, real deletion rather than an artifact. However, the caller reported only an 89 bp DEL while the truth/displayed event spans ~577 bp, and the site sits in a tandem repeat with a truth call just 43 bp away. This size and breakpoint discrepancy inside a repeat region is a classic representation difference, so Truvari's FP label reflects a matching failure rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_trio:FP:chr21:41814065:DEL",
+      "chrom": "chr21",
+      "start": 41814065,
+      "end": 41814300,
+      "svtype": "DEL",
+      "svlen": 235,
+      "caller": "sniffles_trio",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 94,
+      "image_path": "outputs/bench_sniffles/images/sniffles_trio_FP_chr21_41814065_DEL_trio.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.78,
+      "primary_reason": "real inherited deletion mislabeled due to breakpoint/size representation in tandem repeat",
+      "evidence_used": [
+        "split_reads",
+        "read_depth",
+        "tandem_repeat",
+        "low_mappability",
+        "size_mismatch",
+        "breakpoint_ambiguity",
+        "mendelian_inheritance",
+        "parental_support"
+      ],
+      "explanation": "The child (HP:2) shows split-read/spanning-gap signatures (dotted arcs) and a modest coverage dip consistent with a heterozygous deletion, and the same signature is clearly present in the mother (HP:1 and HP:2), indicating an inherited, real variant rather than a caller artifact. The call sits in a low-mappability tandem repeat with a truth call only 94 bp away, and the caller's 235 bp span differs from the ~869 bp region depicted, so the Truvari FP most likely reflects breakpoint/size representation ambiguity in a repetitive region rather than a false call. Inheritance from the mother strongly argues against a spurious de-novo/false positive."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_trio:FP:chr21:41814473:DEL",
+      "chrom": "chr21",
+      "start": 41814473,
+      "end": 41814567,
+      "svtype": "DEL",
+      "svlen": 94,
+      "caller": "sniffles_trio",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 314,
+      "image_path": "outputs/bench_sniffles/images/sniffles_trio_FP_chr21_41814473_DEL_trio.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.7,
+      "primary_reason": "real inherited deletion mislabeled due to representation/size ambiguity in tandem repeat",
+      "evidence_used": [
+        "split_reads",
+        "tandem_repeat",
+        "low_mappability",
+        "size_mismatch",
+        "mendelian_inheritance",
+        "parental_support"
+      ],
+      "explanation": "The dashed spanning-read patterns marking a deletion are visible in the CHILD (HP:2) and clearly in the MOTHER (HP:1 and HP:2), indicating an inherited, real deletion rather than a caller artifact. The region is flagged low_mappability and tandem_repeat, and the caller's SVLEN of 94 bp conflicts with the ~588 bp event drawn and with a truth call 314 bp away, consistent with breakpoint/size representation differences typical of repeat regions. Because the event is supported by both child and a parent, this is most likely a benchmark representation artifact, not a false positive."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_trio:FP:chr21:42587646:DEL",
+      "chrom": "chr21",
+      "start": 42587646,
+      "end": 42589788,
+      "svtype": "DEL",
+      "svlen": 2142,
+      "caller": "sniffles_trio",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": true,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 47,
+      "image_path": "outputs/bench_sniffles/images/sniffles_trio_FP_chr21_42587646_DEL_trio.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.82,
+      "primary_reason": "real inherited deletion mislabeled due to representation/size ambiguity in repeat region",
+      "evidence_used": [
+        "split_reads",
+        "read_depth",
+        "mendelian_inheritance",
+        "parental_support",
+        "segdup",
+        "low_mappability",
+        "tandem_repeat",
+        "size_mismatch",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The child (HG002 HP:2) shows a clear cluster of split/spanning reads (dashed arcs) with a coverage drop on one haplotype from ~42587780 to ~42589653, and the identical pattern is present in the mother (HG004 HP:2), indicating an inherited, genuine heterozygous deletion. The event sits in a segdup/tandem-repeat/low-mappability region, and the caller's 2142 bp span disagrees with the ~4.68 kb truth interval shown, so breakpoint/size ambiguity is the likely cause of the Truvari FP mismatch (nearest truth call only 47 bp away). This is a representation difference, not a caller error."
+    }
+  }
+]

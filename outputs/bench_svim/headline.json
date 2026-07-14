@@ -1,0 +1,19 @@
+{
+  "by_label": {
+    "FP": {
+      "reviewed": 186,
+      "artifact": 132,
+      "genuine": 54,
+      "uncertain": 0,
+      "artifact_rate": 0.71
+    }
+  },
+  "reviewed_total": 186,
+  "fp_artifact_rate": 0.71,
+  "reported_precision": 0.6935749588138386,
+  "adjusted_precision_observed": 0.886,
+  "adjusted_precision_projected": 0.886,
+  "fp_sampled": 186,
+  "fp_total": 186,
+  "fully_reviewed": true
+}

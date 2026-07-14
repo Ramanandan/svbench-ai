@@ -1,0 +1,200 @@
+[
+  {
+    "packet": {
+      "locus_id": "sniffles_ont_chr21:FP:chr21:14106170:DEL",
+      "chrom": "chr21",
+      "start": 14106170,
+      "end": 14106226,
+      "svtype": "DEL",
+      "svlen": 56,
+      "caller": "sniffles_ont_chr21",
+      "truvari_label": "FP",
+      "caller_qual": 59.0,
+      "in_segdup": true,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 22,
+      "pop_catalog_hits": [
+        "gnomAD-SV",
+        "dbVar"
+      ],
+      "pop_max_af": 6.4e-05,
+      "image_path": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/outputs/bench_sniffles_ont_chr21/images/sniffles_ont_chr21_FP_chr21_14106170_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.83,
+      "primary_reason": "Real heterozygous deletion in repeat region with nearby truth call",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "segdup",
+        "tandem_repeat",
+        "population_support",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The HP2 track shows a localized coverage drop to near-zero over a short interval with a cluster of split-read arcs at the breakpoint, the classic signature of a heterozygous deletion, while HP1 remains at full depth. A truth DEL sits only 22 bp away and the locus lies in a segdup/tandem-repeat/homopolymer context, so the apparent FP is almost certainly a breakpoint/representation offset rather than a spurious call. A matching SV catalogued in gnomAD-SV and dbVar corroborates that a real deletion recurs here."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont_chr21:FP:chr21:24969746:DEL",
+      "chrom": "chr21",
+      "start": 24969746,
+      "end": 24969796,
+      "svtype": "DEL",
+      "svlen": 50,
+      "caller": "sniffles_ont_chr21",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": false,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 8,
+      "pop_catalog_hits": [
+        "dbVar"
+      ],
+      "pop_max_af": null,
+      "image_path": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/outputs/bench_sniffles_ont_chr21/images/sniffles_ont_chr21_FP_chr21_24969746_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.85,
+      "primary_reason": "breakpoint-shifted representation of a real heterozygous deletion",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "breakpoint_ambiguity",
+        "population_support"
+      ],
+      "explanation": "On HP:1 there is a clear localized coverage drop with a dotted split-read arc spanning the interval, matching the expected signature of a heterozygous ~50bp deletion, while HP:2 remains fully covered. A truth deletion sits only 8bp away and dbVar records a recurrent SV here, indicating the caller's event is essentially correct and Truvari flagged it as FP due to a small breakpoint/position offset rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont_chr21:FP:chr21:28891444:DEL",
+      "chrom": "chr21",
+      "start": 28891444,
+      "end": 28891760,
+      "svtype": "DEL",
+      "svlen": 316,
+      "caller": "sniffles_ont_chr21",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": false,
+      "in_homopolymer": true,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 233,
+      "pop_catalog_hits": [
+        "gnomAD-SV",
+        "dbVar",
+        "HGSVC"
+      ],
+      "pop_max_af": 0.517808,
+      "image_path": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/outputs/bench_sniffles_ont_chr21/images/sniffles_ont_chr21_FP_chr21_28891444_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.85,
+      "primary_reason": "Real het deletion mislabeled FP due to representation/breakpoint offset",
+      "evidence_used": [
+        "read_depth",
+        "low_mappability",
+        "homopolymer",
+        "population_support",
+        "breakpoint_ambiguity"
+      ],
+      "explanation": "The HP:1 track shows a clear coverage drop to roughly half-depth across ~28891200-28891760 while HP:2 remains at full depth, matching a heterozygous deletion consistent with the caller's 316 bp DEL. The locus sits in low-mappability/homopolymer context only 233 bp from a truth call of the same type, and a structurally matching SV is catalogued in gnomAD-SV/dbVar/HGSVC at high frequency (max_pop_AF=0.518), strongly indicating a recurrent real deletion. The FP label most likely reflects a breakpoint/representation mismatch rather than a genuine false call."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont_chr21:FP:chr21:33577627:DEL",
+      "chrom": "chr21",
+      "start": 33577627,
+      "end": 33577704,
+      "svtype": "DEL",
+      "svlen": 77,
+      "caller": "sniffles_ont_chr21",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": false,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 23,
+      "pop_catalog_hits": [
+        "gnomAD-SV",
+        "dbVar",
+        "HGSVC"
+      ],
+      "pop_max_af": 0.000581,
+      "image_path": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/outputs/bench_sniffles_ont_chr21/images/sniffles_ont_chr21_FP_chr21_33577627_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.8,
+      "primary_reason": "Real deletion in tandem repeat with breakpoint/size representation difference",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "tandem_repeat",
+        "breakpoint_ambiguity",
+        "population_support",
+        "size_mismatch"
+      ],
+      "explanation": "The HP:1 haplotype shows a localized, near-half coverage drop around 33,577,600 with associated split-read arcs on HP:2, consistent with a real heterozygous deletion. The call sits in a tandem repeat only 23 bp from a truth deletion, and a structurally matching SV is catalogued in gnomAD-SV/dbVar/HGSVC, indicating a recurrent real event. Truvari flagged it FP most likely due to representation/breakpoint and size ambiguity (note the 553 bp panel title vs 77 bp caller length) inside the repeat rather than a genuine caller error."
+    }
+  },
+  {
+    "packet": {
+      "locus_id": "sniffles_ont_chr21:FP:chr21:38429549:DEL",
+      "chrom": "chr21",
+      "start": 38429549,
+      "end": 38429599,
+      "svtype": "DEL",
+      "svlen": 50,
+      "caller": "sniffles_ont_chr21",
+      "truvari_label": "FP",
+      "caller_qual": 60.0,
+      "in_segdup": false,
+      "in_low_mappability": true,
+      "in_tandem_repeat": true,
+      "in_homopolymer": false,
+      "repeatmasker_class": null,
+      "gene_overlap": null,
+      "nearest_truth_dist": 10,
+      "pop_catalog_hits": [
+        "dbVar",
+        "HGSVC"
+      ],
+      "pop_max_af": null,
+      "image_path": "/Users/rps/Desktop/JSN_CLAUDE_SCIENCE_HACKATHON/svbench-ai/outputs/bench_sniffles_ont_chr21/images/sniffles_ont_chr21_FP_chr21_38429549_DEL.png"
+    },
+    "verdict": {
+      "classification": "benchmark_artifact",
+      "confidence": 0.82,
+      "primary_reason": "deletion in tandem repeat with adjacent truth call",
+      "evidence_used": [
+        "read_depth",
+        "split_reads",
+        "tandem_repeat",
+        "low_mappability",
+        "breakpoint_ambiguity",
+        "population_support"
+      ],
+      "explanation": "The image shows clear localized coverage drops to near-zero around chr21:38,429,500-38,429,650 with spanning split-read arcs, consistent with a real deletion of the expected DEL signature. The call lies in a tandem-repeat, low-mappability region only 10 bp from a truth DEL and matches known SVs in dbVar/HGSVC, indicating a recurrent real deletion. The FP label most likely reflects a breakpoint/size representation difference (caller reports 50 bp vs nearby truth) rather than a spurious call, so this is a benchmark artifact."
+    }
+  }
+]
